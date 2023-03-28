@@ -13,11 +13,11 @@ import java.util.List;
 @Controller
 @RequestMapping("movie/")
 public class MovieController {
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public String movieId(@PathVariable(name = "id") int movieId, Model model){
         for (int i = 0; i < getMovies().size()-1; i++) {
             if (i == movieId){
-                model.addAttribute("singleMovie", getMovies().get(i+1));
+                model.addAttribute("singleMovie", getMovies().get(i));
             }
         }
         return "movieDetails";
