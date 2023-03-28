@@ -1,12 +1,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>songIndex</title>
 </head>
 <body>
-ciao
+<h3>Lista dei songs:</h3>
+<ul>
+    <li th:each="song : ${mySongs}">
+        <a th:href="@{${song.id}}" th:text="${song.title}"></a>
+    </li>
+</ul>
 </body>
 </html>
