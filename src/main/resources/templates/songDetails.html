@@ -10,5 +10,9 @@
 <body>
 <nav th:replace="~{fragments :: header(link)}"></nav>
 <h3 th:text="${singleSong.title}"></h3>
+
+<p th:text="${singleSong.duration}"></p>
+<p th:text="${singleSong.text}"></p>
+
 </body>
 </html>

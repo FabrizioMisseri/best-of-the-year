@@ -34,9 +34,9 @@ public class MovieController {
 
     private List<Movie> getMovies() {
         List<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("film1", 1));
-        movies.add(new Movie("film2", 2));
-        movies.add(new Movie("film3", 3));
+        movies.add(new Movie("film1", 1, 100, "testo trama"));
+        movies.add(new Movie("film2", 2, 100, "testo trama"));
+        movies.add(new Movie("film3", 3, 100, "testo trama"));
         return movies;
     }
 }
