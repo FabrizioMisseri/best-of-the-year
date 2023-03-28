@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:insert="~{fragments :: resources}">
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
@@ -8,6 +8,7 @@
     <title>song</title>
 </head>
 <body>
+<nav th:replace="~{fragments :: header(link)}"></nav>
 <h3 th:text="${singleSong.title}"></h3>
 </body>
 </html>

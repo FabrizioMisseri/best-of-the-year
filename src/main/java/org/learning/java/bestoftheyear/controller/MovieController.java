@@ -12,19 +12,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("movie/")
+@RequestMapping("/movie/")
 public class MovieController {
     @GetMapping
-    public String movieIndex(Model model){
+    public String movieIndex(Model model) {
         List<Movie> movies = getMovies();
         model.addAttribute("myMovies", movies);
         return "movieIndex";
     }
 
     @GetMapping("{id}")
-    public String movieId(@PathVariable int id, Model model){
+    public String movieId(@PathVariable int id, Model model) {
         List<Movie> movies = getMovies();
-        for(Movie m: movies){
+        for (Movie m : movies) {
             if (m.getId() == id) {
                 model.addAttribute("singleMovie", m);
             }
@@ -34,9 +34,9 @@ public class MovieController {
 
     private List<Movie> getMovies() {
         List<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("film1",1));
-        movies.add(new Movie("film2",2));
-        movies.add(new Movie("film3",3));
+        movies.add(new Movie("film1", 1));
+        movies.add(new Movie("film2", 2));
+        movies.add(new Movie("film3", 3));
         return movies;
     }
 }

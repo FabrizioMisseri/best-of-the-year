@@ -15,6 +15,7 @@
 
 <h1 class="text-center">
     Best of the year by <span th:text="${myName}"></span>
+    <figure class="d-inline"><img style="max-width: 60px" th:src="@{logo.png}"></figure>
 </h1>
 
 <ul>
@@ -27,6 +28,5 @@
     </li>
 </ul>
 
-<th:block th:replace="~{fragments :: scripts}"></th:block>
 </body>
 </html>
