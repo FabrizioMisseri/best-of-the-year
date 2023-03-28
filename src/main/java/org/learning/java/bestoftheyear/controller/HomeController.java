@@ -41,17 +41,15 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/{id}")
-    public String movieId(@PathVariable(name = "id") int movieId, Model model){
-        for (int i = 1; i < getMovies().size(); i++) {
-            if (i == movieId){
-                model.addAttribute("singleMovie", getMovies().get(i));
-            }
-        }
-        return "movieDetails";
+
+
+    private List<Movie> getMovies() {
+        List<Movie> movies = new ArrayList<>();
+        movies.add(new Movie("film1"));
+        movies.add(new Movie("film2"));
+        movies.add(new Movie("film3"));
+        return movies;
     }
-
-
 
 
 
@@ -64,12 +62,6 @@ public class HomeController {
         return songs;
     }
 
-    private List<Movie> getMovies() {
-        List<Movie> movies = new ArrayList<>();
-        movies.add(new Movie("film1"));
-        movies.add(new Movie("film2"));
-        movies.add(new Movie("film3"));
-        return movies;
-    }
+
 
 }
