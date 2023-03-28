@@ -13,11 +13,20 @@ import java.util.List;
 @Controller
 @RequestMapping("song/")
 public class SongController {
+
+    @GetMapping
+    public String songIndex(Model model){
+        List<Song> songs = getSongs();
+        model.addAttribute("mySongs", songs);
+        return "songIndex";
+    }
+
     @GetMapping("{id}")
-    public String songId(@PathVariable(name = "id") int songId, Model model){
-        for (int i = 0; i < getSongs().size(); i++) {
-            if (i == songId){
-                model.addAttribute("singleSong", getSongs().get(i));
+    public String songId(@PathVariable int id, Model model){
+        List<Song> songs = getSongs();
+        for(Song s: songs){
+            if (s.getId() == id) {
+                model.addAttribute("singleSong", s);
             }
         }
         return "songDetails";
@@ -25,9 +34,9 @@ public class SongController {
 
     private List<Song> getSongs() {
         List<Song> songs = new ArrayList<>();
-        songs.add(new Song("song1"));
-        songs.add(new Song("song2"));
-        songs.add(new Song("song3"));
+        songs.add(new Song("song1",1));
+        songs.add(new Song("song2",2));
+        songs.add(new Song("song3",3));
         return songs;
     }
 }
