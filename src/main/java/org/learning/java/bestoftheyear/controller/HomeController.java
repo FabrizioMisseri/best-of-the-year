@@ -5,6 +5,7 @@ import org.learning.java.bestoftheyear.model.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -40,6 +41,21 @@ public class HomeController {
         return "home";
     }
 
+    @GetMapping("/{id}")
+    public String movieId(@PathVariable(name = "id") int movieId, Model model){
+        for (int i = 1; i < getMovies().size(); i++) {
+            if (i == movieId){
+                model.addAttribute("singleMovie", getMovies().get(i));
+            }
+        }
+        return "movieDetails";
+    }
+
+
+
+
+
+    // METHODS
     private List<Song> getSongs() {
         List<Song> songs = new ArrayList<>();
         songs.add(new Song("canzone1"));
