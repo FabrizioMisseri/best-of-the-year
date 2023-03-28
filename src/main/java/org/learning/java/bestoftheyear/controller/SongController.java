@@ -15,7 +15,7 @@ import java.util.List;
 public class SongController {
     @GetMapping("{id}")
     public String songId(@PathVariable(name = "id") int songId, Model model){
-        for (int i = 0; i < getSongs().size()-1; i++) {
+        for (int i = 0; i < getSongs().size(); i++) {
             if (i == songId){
                 model.addAttribute("singleSong", getSongs().get(i));
             }

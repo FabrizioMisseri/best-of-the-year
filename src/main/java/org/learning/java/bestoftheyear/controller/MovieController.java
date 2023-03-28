@@ -15,7 +15,7 @@ import java.util.List;
 public class MovieController {
     @GetMapping("{id}")
     public String movieId(@PathVariable(name = "id") int movieId, Model model){
-        for (int i = 0; i < getMovies().size()-1; i++) {
+        for (int i = 0; i < getMovies().size(); i++) {
             if (i == movieId){
                 model.addAttribute("singleMovie", getMovies().get(i));
             }
